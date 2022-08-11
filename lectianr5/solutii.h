@@ -77,3 +77,13 @@ void solutiepb1d() {
     cout << "Matricea dupa interschimbarea acestora este : " << endl;
     afisareMatrice(x, m, n);
 }
+
+// 1-e
+
+void solutiepb1e() {
+    int m = 0, n = 0;
+    int x[100][100];
+    citireFisier(x, m, n);
+    afisareMatrice(x, m, n);
+    vectorPalindroameOrdColoane(x, m, n);
+}

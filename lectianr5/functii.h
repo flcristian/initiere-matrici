@@ -190,5 +190,60 @@ void gasireMinMaxLinColSiInterschimbare(int x[100][100], int m, int n, int linie
 	}
 }
 
+// Oglindirea numarului.
+
+int oglindire(int n) {
+	int r = 0;
+	while (n != 0) {
+		r = r * 10 + (n % 10);
+		n /= 10;
+	}
+	return r;
+}
+
+// Este palindrom numarul?
+
+bool estePalindrom(int n) {
+	if (n == oglindire(n)) {
+		return true;
+	}
+	return false;
+}
+
+// Afisare vector.
+
+void afisareVector(int x[], int d) {
+	cout << "x[" << d << "] = {";
+	int c = d;
+	for (int i = 0; i < d; i++) {
+		cout << x[i];
+		if (c > 1) {
+			cout << ", ";
+			c--;
+		}
+		else {
+			cout << "}" << endl;
+		}
+	}
+}
+
+// Vector format din elementele palindroame in ordinea coloanelor.
+
+void vectorPalindroameOrdColoane(int x[100][100], int m, int n) {
+	int k = 0;
+	int y[100];
+	for (int j = 0; j < n; j++) {
+		for (int i = 0; i < m; i++) {
+			if (estePalindrom(x[i][j])) {
+				y[k] = x[i][j];
+				k++;
+			}
+		}
+	}
+
+	cout << "Vectorul format din palindroamele luate in aceasta ordine este :" << endl;
+	afisareVector(y, k);
+}
+
 
 
