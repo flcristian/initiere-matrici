@@ -245,5 +245,66 @@ void vectorPalindroameOrdColoane(int x[100][100], int m, int n) {
 	afisareVector(y, k);
 }
 
+// Cea mai mare dintre suma elementelor de pe fiecare linie.
 
+int ceaMaiMareSumaLinie(int x[100][100], int m, int n) {
+	int max = 0;
+	int suma = 0;
+	for (int i = 0; i < m; i++) {
+		suma = 0;
+		for (int j = 0; j < n; j++) {
+			suma += x[i][j];
+		}
+		if (suma > max) {
+			max = suma;
+		}
+	}
+	return max;
+}
+
+// Cate cifre binare contine numarul.
+
+int cateCifreBinare(int n) {
+	int c = 0;
+	while (n != 0) {
+		if (n % 10 == 1 || n % 10 == 0) {
+			c++;
+		}
+		n /= 10;
+	}
+	return c;
+}
+
+// Linia numarului cu cel mai mare numar de cifre binare.
+
+int linieNumarMaxCifBinare(int x[100][100], int m, int n) {
+	int max = 0;
+	int maxCifreBinare = 0;
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			int c = cateCifreBinare(x[i][j]);
+			if (c > maxCifreBinare) {
+				maxCifreBinare = c;
+				max = j;
+			}
+		}
+	}
+	return max;
+}
+
+// Media aritmetica a numerelor de pe linia specifica.
+
+double medieAritmeticaLinie(int x[100][100], int m, int n, int l) {
+	int suma = 0;
+	int count = 0;
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			if (j == l) {
+				count++;
+				suma += x[i][j];
+			}
+		}
+	}
+	return suma / count;
+}
 

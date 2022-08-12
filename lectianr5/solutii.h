@@ -30,6 +30,8 @@ void aplicare() {
 // gaseste numarul cu cele mai multe cifre binare.
 
 // 1-a
+// Cate elemente pare ce stau pe pozitie divizibila
+// cu 2 si cu 3 avem in matrice?
 
 void solutiepb1a() {
     int m = 0, n = 0;
@@ -40,6 +42,8 @@ void solutiepb1a() {
 }
 
 // 1-b
+// Sa se afiseze suma elementelor prime ce stau pe o linie
+// para si pe o coloana impara.
 
 void solutiepb1b() {
     int m = 0, n = 0;
@@ -50,6 +54,8 @@ void solutiepb1b() {
 }
 
 // 1-c
+// Inlocuiti fiecare element patrat perfect cu suma elementelor
+// de pe linia pe care se afla.
 
 void solutiepb1c() {
     int m = 0, n = 0;
@@ -62,6 +68,10 @@ void solutiepb1c() {
 }
 
 // 1-d
+// Sa se gaseasca minimul de pe linia L si maximul de pe
+// coloana C. Sa se interschimbe aceste doua elemente. In cazul
+// in care se gasesc mai multe minime/maxime, se va interschimba primul
+// minim si ultimul maxim.
 
 void solutiepb1d() {
     int m = 0, n = 0;
@@ -79,6 +89,9 @@ void solutiepb1d() {
 }
 
 // 1-e
+// Realizati un nou vector care sa contina toate elementele
+// palindrome in ordinea in care apar ele daca am parcurge
+// matricea pe coloane.
 
 void solutiepb1e() {
     int m = 0, n = 0;
@@ -86,4 +99,29 @@ void solutiepb1e() {
     citireFisier(x, m, n);
     afisareMatrice(x, m, n);
     vectorPalindroameOrdColoane(x, m, n);
+}
+
+// 1-f
+// Realizati suma elementelor de pe fiecare linie in parte. Care este maximul
+// dintre acestea?
+
+void solutiepb1f() {
+    int m = 0, n = 0;
+    int x[100][100];
+    citireFisier(x, m, n);
+    afisareMatrice(x, m, n);
+    cout << "Cea mai mare dintre suma elementelor de pe fiecare linie este : " << ceaMaiMareSumaLinie(x, m, n) << "." << endl;
+}
+
+// 1-g
+// Afisati media aritmetica a elementelor de pe linia unde se
+// gaseste numarul cu cele mai multe cifre binare.
+
+void solutiepb1g() {
+    int m = 0, n = 0;
+    int x[100][100];
+    citireFisier(x, m, n);
+    afisareMatrice(x, m, n);
+    int l = linieNumarMaxCifBinare(x, m, n);
+    cout << "Media aritmetica a elementelor de pe linia unde se gaseste numarul cu cele mai multe cifre binare este : " << medieAritmeticaLinie(x, m, n, l) << "." << endl;
 }
