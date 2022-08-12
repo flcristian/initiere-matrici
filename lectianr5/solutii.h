@@ -125,3 +125,115 @@ void solutiepb1g() {
     int l = linieNumarMaxCifBinare(x, m, n);
     cout << "Media aritmetica a elementelor de pe linia unde se gaseste numarul cu cele mai multe cifre binare este : " << medieAritmeticaLinie(x, m, n, l) << "." << endl;
 }
+
+// 2. Se citeste o matrice de maxim 20 x 1000
+// de elemente numere intregi de la tastatura.
+// a) Realizati un nou numar ce sa contina cifra
+// minima din elementul maxim de pe fiecare linie.
+// b) Care este media aritmetica a elementelor ce au
+// intre 3-5 divizori proprii.
+// c) Afisati toate dubletele palindrome intre ele de pe
+// linia L (citita de la tastatura).
+// d) Care este cifra de control a elementului din
+// coltul dreapta jos?
+// e) Care este frecventa fiecarei cifre in parte
+// a elementelor de pe o coloana para si o linie
+// impara din matricea cititita.
+// f) Care este cel mai mare numar ce se poate forma
+// din cifrele de la pct. e)?
+// g) Care este cel mai mic numar ce se poate forma
+// din toate cifrele ce NU apar in scrierea elementelor
+// din interiorul matricei (se va exclude cifra 0).
+// h) Care este a k-a aparitie a lui y in matrice?
+// (k si y sunt citite de la tastatura).
+// i) Sortati crescator coloana pe care apare elementul de la
+// punctul d).
+// j) Sa se caute intr-un mod eficient numarul k citit
+// de la tastatura in coloana sortata la pct. i)
+
+// 1-a
+// Realizati un nou numar ce sa contina cifra
+// minima din elementul maxim de pe fiecare linie.
+
+void solutiepb2a() {
+    int m = 0, n = 0;
+    int x[100][100];
+    citireFisier(x, m, n);
+    afisareMatrice(x, m, n);
+    cout << "Numarul format este : " << numarCifMinElMaxLinie(x, m, n) << "." << endl;
+}
+
+// 2-b
+// Care este media aritmetica a elementelor ce au
+// intre 3-5 divizori proprii.
+
+void solutiepb2b() {
+    int m = 0, n = 0;
+    int x[100][100];
+    citireFisier(x, m, n);
+    afisareMatrice(x, m, n);
+    cout << "Media aritmetica a numerelor care au intre 3 si 5 divizori este : " << medieAritmeticaElem3si5Div(x, m, n) << "." << endl;
+}
+
+// 2-c
+// Afisati toate dubletele palindrome intre ele de pe
+// linia L (citita de la tastatura).
+
+void solutiepb2c() {
+    int m = 0, n = 0;
+    int x[100][100];
+    citireFisier(x, m, n);
+    afisareMatrice(x, m, n);
+    int l;
+    cout << "Introduceti linia : ";
+    cin >> l;
+    if (l < 1 || l > m) {
+        cout << "Linia introdusa nu este valida." << endl;
+    }
+    else {
+        afisareDubletePalinIntreEleLinie(x, m, n, l - 1);
+    }
+}
+
+// 2-d
+// Care este cifra de control a elementului din
+// coltul dreapta jos?
+
+void solutiepb2d() {
+    int m = 0, n = 0;
+    int x[100][100];
+    citireFisier(x, m, n);
+    afisareMatrice(x, m, n);
+    cout << "Cifra de control a elementului din coltul dreapta jos este : " << cifraDeControl(x[m - 1][n - 1]) << "." << endl;
+}
+
+// 2-e
+// Care este frecventa fiecarei cifre in parte
+// a elementelor de pe o coloana para si o linie
+// impara din matricea cititita.
+
+void solutiepb2e() {
+    int m = 0, n = 0;
+    int x[100][100];
+    int cifre[100];
+    citireFisier(x, m, n);
+    afisareMatrice(x, m, n);
+    atribuire0Vector(cifre, 10);
+    frecventaCifreElemLinieParaColoanaImpara(x, m, n, cifre);
+    afisareVectorFrecventaCifre(cifre, 10);
+}
+
+// 2-f
+// Care este cel mai mare numar ce se poate f orma
+// din cifrele de la pct. e)?
+
+void solutiepb2f() {
+    int m = 0, n = 0;
+    int x[100][100];
+    int cifre[100];
+    citireFisier(x, m, n);
+    afisareMatrice(x, m, n);
+    atribuire0Vector(cifre, 10);
+    frecventaCifreElemLinieParaColoanaImpara(x, m, n, cifre);
+    cout << "Cel mai mare numar care poate fi format din aceste cifre este : " << numarMaximCifreFrecMaiMare0(cifre, 10) << "." << endl;
+}
